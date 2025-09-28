@@ -16,11 +16,12 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SERVER_HOST }}
-          port: ${{ secrets.SERVER_PORT }}      # DSM SSH 포트
-          username: ${{ secrets.SERVER_USER }}  # DSM 계정명
-          key: ${{ secrets.SERVER_SSH_KEY }}    # DSM에서 만든 개인키
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd /volume1/docker/portfolio
+            git reset --hard
             git pull origin main
             /usr/local/bin/docker-compose down
             /usr/local/bin/docker-compose up -d --build
