@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            git config --global --add safe.directory /volume1/docker/portfolio
             cd /volume1/docker/portfolio
             git reset --hard
             git pull origin main
