@@ -1,0 +1,26 @@
+name: Deploy React App to DSM
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Deploy to DSM via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          port: ${{ secrets.SERVER_PORT }}      # DSM SSH 포트
+          username: ${{ secrets.SERVER_USER }}  # DSM 계정명
+          key: ${{ secrets.SERVER_SSH_KEY }}    # DSM에서 만든 개인키
+          script: |
+            cd /volume1/docker/portfolio
+            git pull origin main
+            docker compose down
+            docker compose up -d --build
