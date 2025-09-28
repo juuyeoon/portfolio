@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio_container
+    image: portfolio:latest
+    ports:
+      - "3010:80"   # 외부에서 http://localhost:3010 접속 가능
+    restart: unless-stopped
