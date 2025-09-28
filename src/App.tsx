@@ -244,7 +244,7 @@ const portfolioItems = [
     tags: ["#교육기획", "#교육설계", "#교육환경개선"],
     imageType: "image",
     imageContent: {
-      src: "/community.jpg",
+      src: "/kakao/community.jpg",
     },
     type: "Bootcamp",
     period: "2024.10 - 2025.01",
@@ -263,7 +263,7 @@ const portfolioItems = [
 - 과정 개강 후 초기 이탈자가 3명 → 0명으로 대폭 감소
 - 선택형 세션 평균 참여율 20%p 이상 상승
 - 모두의연구소 부트캠프 운영 중 가장 높은 운영 관련 NPS 점수 달성`,
-    detailImage: "/community.jpg",
+    detailImage: "/kakao/community.jpg",
   },
   {
     id: "bootcamp-2",
@@ -272,7 +272,7 @@ const portfolioItems = [
     tags: ["#동향_큐레이션", "#세미나_운영", "#아카이빙", "#Github"],
     imageType: "image",
     imageContent: {
-      src: "/blog.png",
+      src: "/kakao/blog.png",
     },
     type: "Bootcamp",
     period: "2024.11 - 2025.06",
@@ -289,7 +289,7 @@ const portfolioItems = [
 - 105회의 세미나 진행을 통한 커뮤니티 활성화 (과정 내 자발적 모임 0회 → 4회로 증대)
 - 200개 이상의 최신 동향 콘텐츠 확보 및 아카이빙
 - 학습자들의 능동적인 태도 변화`,
-    detailImage: "/blog.png",
+    detailImage: "/kakao/blog.png",
   },
   // ... 다른 portfolioItems 에도 id, period, summary, description, detailImage 필드를 유사하게 추가해주세요.
   // 예시 데이터만 일부 수정했습니다.
@@ -300,7 +300,7 @@ const portfolioItems = [
     tags: ["#Forms", "#Zapier", "#Slack", "#상담_자동매칭"],
     imageType: "image",
     imageContent: {
-      src: "/forms.jpg",
+      src: "/kakao/forms.jpg",
     },
     type: "Bootcamp",
     period: "2024. 06 - 2024. 07",
@@ -319,7 +319,7 @@ const portfolioItems = [
 - 서류 발급 처리 시간이 평균 15분에서 3분 이내로 단축
 - 누락·중복 대응의 감소로 운영 관련 NPS 점수가 17점 상승 (80점 > 97점)
 - 모두의연구소 부트캠프 운영 중 가장 높은 운영 관련 NPS 점수 달성`,
-    detailImage: "/forms.jpg",
+    detailImage: "/kakao/forms.jpg",
   },
   {
     id: "bootcamp-4",
@@ -328,7 +328,7 @@ const portfolioItems = [
     tags: ["#SpreadSheet", "#CursorAI", "#Zapier", "#이탈_지표_트래킹"],
     imageType: "image",
     imageContent: {
-      src: "/dashboard.jpg",
+      src: "/kakao/dashboard.jpg",
     },
     type: "Bootcamp",
     period: "2024. 06 - 2024. 07",
@@ -348,7 +348,7 @@ const portfolioItems = [
 🥇 **성과**
 - 이탈 위험자 트래킹을 통해 '선제 상담' 제도 마련
 - 학습자의 지표를 토대로 운영 전담 매니저가 상담을 진행하며 학습 과정 전반을 보조하고, 이탈을 적극적으로 방지`,
-    detailImage: "/dashboard.jpg",
+    detailImage: "/kakao/dashboard.jpg",
   },
   {
     id: "bootcamp-5",
@@ -357,7 +357,7 @@ const portfolioItems = [
     tags: ["#K-Digital Training", "#재직자_도약과정", "#제안서", "#승인"],
     imageType: "image",
     imageContent: {
-      src: "/kdt.jpg",
+      src: "/kakao/kdt.jpg",
     },
     type: "Bootcamp",
     period: "2024. 12 - 2025. 02",
@@ -379,7 +379,7 @@ const portfolioItems = [
 - K-DT 고성과 맞춤형 과정 1개 승인 완료
 - K-DT 재직자 도약 과정 2개 승인 완료
 - 총 40여개의 참여기업 신규 발굴 및 관리`,
-    detailImage: "/kdt.jpg",
+    detailImage: "/kakao/kdt.jpg",
   },
   // K-12교육기획 - 2개
   {
@@ -389,7 +389,7 @@ const portfolioItems = [
     tags: ["#코딩교육", "#스크래치", "#초등교육"],
     imageType: "image",
     imageContent: {
-      src: "/able.jpg",
+      src: "/kakao/able.jpg",
     },
     type: "K-12",
     period: "2022.04 - 2022.12",
@@ -409,7 +409,7 @@ const portfolioItems = [
 - 국내 최초 특수학급 대상 SW 정규 교과 편성 및 차년도 운영 대상 확장
 - 특수학급 대상 SW, 항공 교육 전담 강사 양성
 - 대상 특성 맞춤 교구재 제작 및 과제 조작성 조정을 통한 학습 참여도·안전성 동시 확보 `,
-    detailImage: "/able.jpg",
+    detailImage: "/kakao/able.jpg",
   },
   {
     id: "k12-2",
@@ -418,7 +418,7 @@ const portfolioItems = [
     tags: ["#초중고_맞춤형", "#블록코딩", "#PBL기반", "#협동학습", "#프로그래밍교육"],
     imageType: "image",
     imageContent: {
-      src: "/disac.jpg",
+      src: "/kakao/disac.jpg",
     },
     type: "K-12",
     period: "2022.12 - 2023.03",
@@ -438,7 +438,7 @@ const portfolioItems = [
 - 국내 최초 특수학급 대상 SW 정규 교과 편성 및 차년도 운영 대상 확장
 - 특수학급 대상 SW, 항공 교육 전담 강사 양성
 - 대상 특성 맞춤 교구재 제작 및 과제 조작성 조정을 통한 학습 참여도·안전성 동시 확보 `,
-    detailImage: "/disac.jpg",
+    detailImage: "/kakao/disac.jpg",
   },
   // 컨퍼런스 - 4개
   {
@@ -529,18 +529,7 @@ const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
               {item.imageContent.text}
             </div>
           )}
-          {item.imageType === "tags" && (
-            <div className="flex h-full w-full flex-wrap items-center justify-center gap-2 rounded-lg bg-gray-800 p-4">
-              {item.imageContent.tags.map((tag) => (
-                <span
-                  key={tag.name}
-                  className={`rounded-full px-3 py-1 text-sm font-semibold text-white ${tag.color}`}
-                >
-                  {tag.name}
-                </span>
-              ))}
-            </div>
-          )}
+
           {item.imageType === "image" && (
             <img
               src={item.imageContent.src}
@@ -710,7 +699,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/kakao">
       <div className="bg-white font-sans">
         {/* Header */}
         <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md">
