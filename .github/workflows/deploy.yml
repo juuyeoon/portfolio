@@ -21,6 +21,5 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}    # DSM에서 만든 개인키
           script: |
             cd /volume1/docker/portfolio
-            git pull origin main
             docker compose down
             docker compose up -d --build
