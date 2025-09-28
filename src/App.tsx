@@ -628,7 +628,7 @@ const ProjectDetail = () => {
 
   const formatDescription = (text: string) => {
     return text
-      .replace(/^### (.*$)/gim, '<h3 class="text-2xl font-bold mt-12 mb-4">$1</h3>')
+      .replace(/^### (.*$)/gim, '<h3 className="text-2xl font-bold mt-12 mb-4">$1</h3>')
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\n/g, "<br />");
   };
@@ -662,7 +662,7 @@ const ProjectDetail = () => {
         </div>
 
         {/* Tags Section */}
-        <div class="my-12 flex flex-wrap justify-center gap-2">
+        <div className="my-12 flex flex-wrap justify-center gap-2">
           {item.tags.map((tag) => (
             <span
               key={tag}
