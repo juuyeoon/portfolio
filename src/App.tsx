@@ -11,6 +11,35 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import "./App.css";
 
+type PortfolioItemBase = {
+  id: string;
+  category: string;
+  title: string;
+  tags: string[];
+  type: string;
+  period: string;
+  description: string;
+  detailImage: string;
+  summary?: string;
+};
+
+type ImagePortfolioItem = PortfolioItemBase & {
+  imageType: "image";
+  imageContent: {
+    src: string;
+  };
+};
+
+type GradientPortfolioItem = PortfolioItemBase & {
+  imageType: "gradient";
+  imageContent: {
+    text: string;
+    colors: string;
+  };
+};
+
+type PortfolioItem = ImagePortfolioItem | GradientPortfolioItem;
+
 // 아이콘 컴포넌트들 (SVG)
 const SearchIcon = () => (
   <svg
@@ -237,7 +266,7 @@ const ShareIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 // 포트폴리오 데이터
-const portfolioItems = [
+const portfolioItems: PortfolioItem[] = [
   // 성인교육기획 (부트캠프) - 5개
   {
     id: "bootcamp-1",
@@ -620,7 +649,7 @@ const categories = [
 ];
 
 // 포트폴리오 카드 컴포넌트
-const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
+const PortfolioCard = ({ item }: { item: PortfolioItem }) => {
   const categoryStyles = {
     "Bootcamp": {
       icon: LaptopIcon,
@@ -671,15 +700,13 @@ const PortfolioCard = ({ item }: { item: (typeof portfolioItems)[0] }) => {
         <h3 className="mb-2 flex-grow text-xl font-bold text-gray-800">{item.title}</h3>
         <div className="mb-6 text-sm text-gray-500">{item.tags.join(" ")}</div>
         <div className="mt-auto flex h-48 items-center justify-center rounded-lg p-4">
-          {item.imageType === "gradient" && (
+          {item.imageType === "gradient" ? (
             <div
               className={`flex h-full w-full items-center justify-center rounded-lg bg-gradient-to-br text-2xl font-bold text-white ${item.imageContent.colors} text-center`}
             >
               {item.imageContent.text}
             </div>
-          )}
-
-          {item.imageType === "image" && (
+          ) : (
             <img
               src={item.imageContent.src}
               alt={item.title}
