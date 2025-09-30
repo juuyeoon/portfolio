@@ -788,7 +788,7 @@ const ProjectDetail = () => {
   }
 
   const recommendedItems = portfolioItems.filter(
-    (p) => p.id !== item.id && p.tags.some((tag) => item.tags.includes(tag)),
+    (p) => p.id !== item.id && p.category === item.category,
   );
 
   return (
