@@ -7,6 +7,8 @@ import {
   useParams,
   useNavigate,
 } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import "./App.css";
 
 // 아이콘 컴포넌트들 (SVG)
@@ -386,7 +388,7 @@ const portfolioItems = [
     id: "k12-1",
     category: "K-12교육기획",
     title: "국립항공박물관 'A-ble' 교육 총괄",
-    tags: ["#코딩교육", "#스크래치", "#초등교육"],
+    tags: ["#특수학생", "#SW교육", "#드론교육", "#교육기획", "#박물관교육"],
     imageType: "image",
     imageContent: {
       src: "/kakao/able.jpg",
@@ -444,18 +446,166 @@ const portfolioItems = [
     id: "conference-1",
     category: "컨퍼런스",
     title: "2024 MODUCON 세션 운영",
-    tags: ["#개발자행사", "#컨퍼런스", "#이벤트기획"],
-    imageType: "gradient",
+    tags: ["#개발자행사", "#컨퍼런스", "#기획", "#운영"],
+    imageType: "image",
     imageContent: {
-      text: "Dev Conference 2024",
-      colors: "from-purple-500 to-pink-500",
+      src: "/kakao/moducon.jpg",
     },
     type: "Conference",
-    period: "2024.02",
-    summary:
-      "'모두의연구소'에서 주최하는 'MODUCON 2024'에서 '성장하는 교육 기획자의 일하는 법'을 주제로 세션을 발표하고 운영했습니다.",
-    description: "상세 설명...",
-    detailImage: "/images/conference-1-detail.png",
+    period: "2024.11 - 2024.12",
+    description: `☝️ **한 줄 요약**
+- 연간 1만명 이상이 참석하는 '모두의연구소' 주최 'MODUCON 2024'에서 'Connect&Learn' 세션을 기획·운영
+
+👩‍💻 **역할**
+- 세션 별 연사 관리 및 커뮤니케이션 총괄
+- 세션 구성 및 현장 운영 기획
+- 행사 당일 현장 운영 총괄
+- 멘토링 형식의 5개 세션 진행
+
+
+🥇 **성과**
+- 200여명 이상의 멘티가 현장에 방문하여 멘토링 세션 참여 `,
+    detailImage: "/kakao/moducon.jpg",
+  },
+  {
+    id: "conference-2",
+    category: "컨퍼런스",
+    title: "AI 관련 컨퍼런스 참여",
+    tags: ["#개발자행사", "#AI", "#GDG", "#Google_Developer_Group"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/gdg.jpg",
+    },
+    type: "Conference",
+    period: "-",
+    description:
+      "🎫 AI와 관련된 컨퍼런스, 특히 GDG(Google Developer Group)에서 개최하는 'Google I/O Extended', 'Build with AI' 등 다양한 행사에 직접 참여하여 여러 현업자들의 인사이트를 얻고, 커뮤니티를 구축해 나갔습니다.",
+    detailImage: "/kakao/gdg.jpg",
+  },
+  {
+    id: "conference-3",
+    category: "컨퍼런스",
+    title: "개발 관련 컨퍼런스 참여",
+    tags: ["#개발자행사", "#K-Devcon", "#PyCon"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/devcon.jpg",
+    },
+    type: "Conference",
+    period: "-",
+    description:
+      "🎫 개발과 관련된 컨퍼런스에 직접 참여하여 후원부스를 운영하거나, 세션을 듣고 네트워킹에 적극적으로 참여하며 커뮤니티에 속해있는 개발자들을 가까이서 접했습니다.",
+    detailImage: "/kakao/devcon.jpg",
+  },
+  {
+    id: "conference-4",
+    category: "컨퍼런스",
+    title: "다양한 분야의 행사 참여",
+    tags: ["#HCI", "#비개발자", "#넓은_인사이트", "#네트워킹"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/hci.jpg",
+    },
+    type: "Conference",
+    period: "-",
+    description:
+      "🎫 HCI (Human-Computer Interaction), IT기업의 비개발자 포지션(데이터 분석, TPM, 개발 교육)의 전문가들과 함께하는 행사 등에 직접 참여하여 개발자 외의 다른 직군에 있는 분들의 인사이트를 얻을 수 있었습니다.",
+    detailImage: "/kakao/hci.jpg",
+  },
+  // 대외활동 - 2개
+  {
+    id: "activity-1",
+    category: "대외활동",
+    title: "인천 시민연구소 명예시민 연구원",
+    tags: ["#SOS_LAB", "#사회문제_해결", "#퍼실리테이션"],
+    imageType: "image",
+    imageContent: { src: "/kakao/sos.jpg" },
+    type: "Activity",
+    period: "2020.08 - 현재",
+    description: `☝️ **한 줄 요약**
+- 인천의 아동 문제를 중심으로 아젠다를 발굴하고, SW 기술을 기반으로 문제를 해결할 수 있는 방안을 모색하는 사회 혁신 프로젝트 
+
+👩‍💻 **역할**
+- 인천시 아동학대 문제를 중심으로 아젠다 발굴 및 해결 방안 모색
+- 퍼실리테이터로서 팀원 간의 원활한 소통과 협업 촉진
+- 프로젝트 진행을 위한 일정 관리 및 조율
+- 아이디어 테스트 및 피드백 수집
+
+🥇 **성과**
+- 아동학대 예방을 위한 부모교육 프로그램 기획 및 유관기관에 제안
+- 활동에 대한 좋은 피드백을 받아 4년간 지속적으로 활동 진행
+- 전문 퍼실리테이터 양성 과정을 수료하여 이후 퍼실리테이터로 해당 활동에 지속적으로 참여
+- 2022년 인천 명예 시민연구원 위촉`,
+    detailImage: "/kakao/sos.jpg",
+  },
+  {
+    id: "activity-2",
+    category: "대외활동",
+    title: "인천 시빅테크랩 전문위원",
+    tags: ["#기술기반_문제해결", "#사용자분석"],
+    imageType: "image",
+    imageContent: { src: "/kakao/cibic.png" },
+    type: "Activity",
+    period: "2021. 05 - 현재",
+    description: `☝️ **한 줄 요약**
+- 인천 시민들이 생활 문제를 해결하기 위한 아이디어를 제안하고, 지역 내 SW 기업과의 협업으로 기술 개발 및 사업화를 진행하는 프로젝트
+
+👩‍💻 **역할**
+- 인천시에서 발생하는 생활 문제 도출
+- 문제를 해결할 수 있는 기술 기반의 아이디어 고도화
+- 지역 내 SW 기업과의 협업을 통한 기술 개발 및 테스트
+
+🥇 **성과**
+- AI를 활용하여 표정으로 우울증을 진단하는 앱 서비스 기획
+- 인천 내 AI 전문 기업과의 협업으로 앱 프로토타입 개발
+- 인천 시빅테크랩 전문위원으로 4년째 활동 중`,
+    detailImage: "/kakao/cibic.png",
+  },
+  // 기타 - 3개
+  {
+    id: "etc-1",
+    category: "기타",
+    title: "연세교육공학회 에듀테크 분과 스터디 운영",
+    tags: ["#교육공학", "#에듀테크", "#Vibe_Coding", "#스터디"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/edu.png",
+    },
+    type: "Etc",
+    period: "2024.05 - 현재",
+    description:
+      "📚 연세교육공학회에서 에듀테크 분과의 리드를 맡아 주기적인 스터디를 운영하고 있습니다. 에듀테크 분야의 최신 트렌드와 기술에 대한 이해를 통해 교육공학적 접근을 심도있게 하는 스터디를 운영하였습니다. 최근에는 Vibe Coding을 통해 교육현장에 적합한 형태의 서비스를 PRD 작성부터 MVP 개발까지 직접 진행하는 스터디를 운영하였으며, 많은 성원과 참여가 이어졌습니다.",
+    detailImage: "/kakao/edu.png",
+  },
+  {
+    id: "etc-2",
+    category: "기타",
+    title: "포트폴리오 바이브 코딩",
+    tags: ["#Vibe_Coding", "#프로그래밍", "#React"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/vibe.png",
+    },
+    type: "Etc",
+    period: "-",
+    description:
+      "💻 Github Copilot을 활용하여 Kakao의 페이지를 오마주한 포트폴리오를 제작하였습니다. React 기반의 간단한 페이지이며, 카카오가 기술을 소개하는 페이지의 형식을 본따서 프로젝트의 실제 사진 등을 공유하였습니다.",
+    detailImage: "/kakao/vibe.png",
+  },
+  {
+    id: "etc-3",
+    category: "기타",
+    title: "LinkedIn 활동",
+    tags: ["#LinkedIn", "#네트워킹", "#인사이트_수집"],
+    imageType: "image",
+    imageContent: {
+      src: "/kakao/linkedin.png",
+    },
+    type: "Etc",
+    period: "-",
+    description:
+      "🌐 LinkedIn에서 분야에 국한되지 않고, 수많은 전문가들과 네트워킹을 구축하고 있습니다. 제가 경험하며 깨닫게 된 좋은 인사이트를 정리하거나, 깊게 생각해 볼만한 주제의 이야기들을 담고 있습니다. 링크드인 네트워크를 통해 훌륭한 연사님을 세미나에 모시기도 하고, 함께 사이트 프로젝트를 진행하는 등 의미와 재미가 모두 있는 연결을 이어나가고 있습니다.<br /><br />[💡 링크드인 바로가기](https://www.linkedin.com/in/juyeon-ayla)",
+    detailImage: "/kakao/linkedin.png",
   },
   // ... 나머지 항목들도 id 및 상세 정보 필드 추가
 ];
@@ -614,13 +764,6 @@ const ProjectDetail = () => {
     (p) => p.id !== item.id && p.tags.some((tag) => item.tags.includes(tag)),
   );
 
-  const formatDescription = (text: string) => {
-    return text
-      .replace(/^### (.*$)/gim, '<h3 className="text-2xl font-bold mt-12 mb-4">$1</h3>')
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/\n/g, "<br />");
-  };
-
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl">
@@ -642,11 +785,21 @@ const ProjectDetail = () => {
 
         {/* Main Content */}
         <div className="prose prose-lg mx-auto max-w-3xl">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: formatDescription(item.description),
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            components={{
+              a: ({ node, ...props }) => (
+                <a
+                  {...props}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                />
+              ),
             }}
-          />
+          >
+            {item.description}
+          </ReactMarkdown>
         </div>
 
         {/* Tags Section */}
